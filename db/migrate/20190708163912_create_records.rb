@@ -1,7 +1,7 @@
 class CreateRecords < ActiveRecord::Migration[5.2]
   def change
     create_table :records do |t|
-      t.string :record label
+      t.string :record_label
       t.string :artist
       t.string :title
       t.integer :year
