@@ -1,8 +1,8 @@
-railsclass UsersController < ApplicationController
+class UsersController < ApplicationController
 private 
 
   def user_params
-    params.require(:user).permit(:username,:records,:location)
+    params.require(:user).permit(:username,:records,:location, :email)
   end
 
 
@@ -16,17 +16,22 @@ public
     @user = User.new()
   end
 
+  def index
+    @users = User.all
+  end
+
   def create
-      user = params['user']
-      User.create(user_params)
+
+      @user = User.create(user_params)
       flash[:sucess]=  'your user was created'
-      redirect_to users_path
+      redirect_to user_path(@user)
   end
 
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
     redirect_to
-
   end
 end
+
+
