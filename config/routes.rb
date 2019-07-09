@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "users#new"
-  resources :users do
+  root "users#show"
     resources :records do
       resources :receipts
     end
-  end
   
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

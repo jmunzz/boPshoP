@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
 private 
 
   def user_params
@@ -9,7 +10,8 @@ private
 public
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
+    @record = Record.new()
   end
 
   def new
@@ -22,16 +24,17 @@ public
 
   def create
 
-      @user = User.create(user_params)
+      @user = current_user
       flash[:sucess]=  'your user was created'
-      redirect_to user_path(@user)
-  end
+      # redirect_to user_path(@user)
+     end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
     @user.update(user_params)
     redirect_to
   end
+
 end
 
 

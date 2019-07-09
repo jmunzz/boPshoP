@@ -19,14 +19,21 @@ public
 
   def index
     @records = Record.all
-    @user=User.find(params[:user_id])
+    @user = current_user
   end
 
   def create
     record = params['record']
-    Record.create(record_params)
+    current_user.records.create(record_params)
     flash[:sucess]=  'your record was added'
     redirect_to records_path
   end
+
+  def destroy
+    @record = Record.find(params[:id])
+    @record.destroy
+    redirect_to records_path
+  end
+
 
 end

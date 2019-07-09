@@ -1,4 +1,14 @@
-<h1 class= "welcome"> Hello </h1>
+<h1 class= "welcome"> </h1>
 <div>Username: <%= @user.username %></div>
 <div>Location: <%= @user.location %></div>
 <div>Email: <%=@user.email %></div>
+ 
+<%= form_for @record do |form| %>
+	record label: <%= form.text_field :record_label%><br />
+	artist: <%= form.text_field :artist%><br />
+	title: <%= form.text_field :title%><br />
+	year: <%= form.text_field :year%><br />
+	condition: <%= form.text_field :condition%><br />
+	description: <%= form.text_field :description%><br />
+<%= form.submit 'Post Record' %>
+	    <% end %> -->
