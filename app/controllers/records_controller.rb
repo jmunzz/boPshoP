@@ -23,7 +23,7 @@ public
   end
 
   def query_all
-    Record.where([ "record_label LIKE ?", %#{(params[:user_query])} % , "artist LIKE ?",  %#{(params[:user_query])}%,     bun"year LIKE ?", %#{(params[:user_query])}% ]) 
+    Record.where([ "record_label LIKE ? or artist LIKE ? or year LIKE ?", "%#{(params[:user_query])}%" , "%#{(params[:user_query])}%", "%#{(params[:user_query])}%" ]) 
   end
 
 
