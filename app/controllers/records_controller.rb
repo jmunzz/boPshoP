@@ -3,7 +3,7 @@ class RecordsController < ApplicationController
   private
 
   def record_params
-    params.require(:record).permit(:record_label, :artist, :title, :year, :condition, :description, :user_id)
+    params.require(:record).permit(:record_label, :artist, :title, :year, :condition, :description, :user_id, :sleeve)
   end
 
 public
@@ -11,6 +11,7 @@ public
 
   def show
     @record = Record.find(params[:id])
+    @user = Record.find(params[:user_id])
   end
 
   def new

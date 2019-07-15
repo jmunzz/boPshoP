@@ -1,15 +1,34 @@
 <h1 class= "welcome"> </h1>
+
+
+<div>Email: <%=@user.email %></div>
+
 <div>Username: <%= @user.username %></div>
 <div>Location: <%= @user.location %></div>
-<div>Email: <%=@user.email %></div>
+
  
-<%= form_for @record do |form| %>
-	record label: <%= form.text_field :record_label%><br />
-	artist: <%= form.text_field :artist%><br />
-	title: <%= form.text_field :title%><br />
-	year: <%= form.text_field :year%><br />
-	condition: <%= form.text_field :condition%><br />
-	description: <%= form.text_field :description%><br />
-<%= form.submit 'Post Record' %>
-		<% end %> -->
+
+		<div class="card" style="width: 18rem;">
+			<div class="card-body">
+			  <h5 class="card-title">Sell a Record</h5>
+			  <%= form_for @record do |form| %>
+
+			  <p class="card-text">
+				<p>record label: <%= form.text_field :record_label%><br /></p>
+				<p>artist: <%= form.text_field :artist%><br /></p>
+				<p>title: <%= form.text_field :title%><br /></p>
+				<p>
+				year: <%= form.text_field :year%><br />
+				</p>
+				condition: <%= form.text_field :condition%><br />
+				description: <%= form.text_field :description%><br />
+				record sleeve: <%= f.file_field :avatar %><br />
+			<%= form.submit 'Post Record' %>
+			</p>
+			<% end %> -->
+
+			  <a href="#" class="btn btn-primary">Go somewhere</a>
+			</div>
+		  </div>
+
 		

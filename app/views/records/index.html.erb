@@ -1,20 +1,17 @@
 <h1>Records</h1>
 
+<%= link_to "home", root_path%>
+
  <% @records.each do |record| %>
+  
+  <div class="card-body">
+  <%= link_to "Remove", record_path(record), method: :delete%>
+   <p class="card-text">record label: <%= record.record_label%>artist: <%= record.artist%>
+  title: <%= record.title%> year <%= record.year%> condition: <%= record.condition%>
+  description <%= record.description%></p>
+   </div>
+  </div>
+    <% end %>
+    
 
-
-                
-                  <div class="card-body">
-                    <%= link_to "Remove", record_path(record), method: :delete%>
-                    <p class="card-text">record label: <%= record.record_label%>artist: <%= record.artist%>
-                    	title: <%= record.title%> year <%= record.year%> condition: <%= record.condition%>
-                    	description <%= record.description%>
-                    </p>
-                        
-                
-                
-                
-                  </div>
-                </div>
-                <% end %>
                   
